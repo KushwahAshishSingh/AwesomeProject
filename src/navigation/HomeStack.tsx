@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import Or_code from '../../assets/icons/Or_code';
 import Fi_bell from '../../assets/icons/Fi_bell';
-
+import {QrScanner} from '../components/QrScanner';
 const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
 const HomeStackNavigator = () => {
   const navigation = useNavigation();
@@ -44,6 +44,8 @@ const HomeStackNavigator = () => {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
+                onPress={() => navigation.navigate('QrScanner')}
+
                 style={Platform.OS === 'ios' && {paddingBottom: 10}}>
                 <View style={styles.custom_height}>
                   <Or_code />

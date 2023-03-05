@@ -23,6 +23,7 @@ export type BottomTabNavigatorPropsI = CompositeNavigationProp<
 
 export type MainNavigatorStack = {
   BottomTabStack: BottomTabNavigatorPropsI;
+  QrScanner: undefined;
 };
 
 export type NavigationPropI = CompositeNavigationProp<

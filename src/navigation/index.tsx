@@ -4,7 +4,7 @@ import React from 'react';
 import BottomTabs from './Tabs';
 import { MainNavigatorStack } from './types';
 import { navigationRef } from './RootNavigation';
-
+import {QrScanner} from '../components/QrScanner';
 const MyTheme = {
   ...DefaultTheme,
   colors: {
@@ -24,6 +24,13 @@ const RootNavigator: React.FC<MainNavigatorStack> = () => {
           <Stack.Screen
             name="BottomTabStack"
             component={BottomTabs}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="QrScanner"
+            component={QrScanner}
             options={{
               headerShown: false,
             }}
