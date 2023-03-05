@@ -20,7 +20,7 @@ export const WalletCard = ({
     value,
     currentPrice,
 }: PropsI) => {
-    const [eye, setEye] = useState(false);
+    const [eye, setEye] = useState(true);
     return (
         <View>
             <View style={styles.container}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     current_analytics_container:{ width: '40%', alignItems: 'center', paddingTop: 30, paddingBottom: 4.5 },
     analytics_sub_container:{ flexDirection: 'row', height: 18, paddingLeft: 15, paddingTop: 2 },
     index:{ marginTop: -5, marginLeft: -2 },
-    end_flex:{alignSelf: 'flex-end'}
+    end_flex:{alignSelf: 'center', marginTop:2}
 });
 
 
