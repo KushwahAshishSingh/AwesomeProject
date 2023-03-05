@@ -3,7 +3,7 @@
 
 // eslint-disable-next-line prettier/prettier
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { moderateScale } from '../../../utils/helpers';
 
 import Eye from '../../../../assets/icons/Eye';
@@ -20,20 +20,26 @@ export const WalletCard = ({
     value,
     currentPrice,
 }: PropsI) => {
+    const [eye, setEye] = useState(false);
     return (
         <View>
             <View style={styles.container}>
                 <View style={styles.row_flex}>
                     <Text style={[ styles.font400Size14, styles.secondary_color]}>Total Balance</Text>
-                    <TouchableOpacity style={styles.eye}>
+                    <TouchableOpacity style={styles.eye} onPress={()=>setEye(!eye)}>
                         <Eye />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.row_flex}>
+                    {eye ?  
                     <View style={styles.wallet_money}>
                         <Text style={styles.font500Size40}>${price}.</Text>
                         <Text style={styles.font500Size20}>00</Text>
                     </View>
+                    :  <View style={styles.wallet_money}>
+                        <Text style={[styles.font500Size14, styles.secondary_color]}>Press the eye icon to the price</Text>
+                    </View>
+                    }
                     <View style={styles.current_analytics_container}>
                         <Text style={[ styles.font500Size10, styles.secondary_color]}>{hours}H Change</Text>
                         <View style={styles.analytics_sub_container}>
@@ -54,16 +60,16 @@ const styles = StyleSheet.create({
     container: {
          width: 342, height: 152, borderRadius: 12, borderWidth: 1, borderColor: '#F5F5F5', backgroundColor: '#F8FAFE', paddingTop: 35, paddingLeft: 21 },
     font500Size14:{
-        fontWeight:'500', fontSize:14,
+         fontSize:14, fontFamily: 'Lato',
           },
           font500Size10:{
-            fontWeight:'500', fontSize:10,
+            fontFamily: 'Lato', fontSize:10,
           },
           font400Size14:{
-            fontWeight:'400',fontSize:14,
+            fontFamily: 'Lato',fontSize:14,
           },
-          font500Size40:{fontWeight: '500', fontSize: 40},
-          font500Size20:{ fontWeight: '500', fontSize: 20, alignSelf: 'flex-end' },
+          font500Size40:{ fontSize: 40, fontFamily: 'Lato'},
+          font500Size20:{ fontFamily: 'Lato', fontSize: 20, alignSelf: 'flex-end' },
           primary_color:{color:'#117B34'},
           secondary_color:{ color: '#808588'},
     row_flex:{ flexDirection: 'row' },

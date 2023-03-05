@@ -58,8 +58,12 @@ const HomeStackNavigator = () => {
 };
 
 const styles = StyleSheet.create({
-  heading: {color: 'rgba(64, 64, 64, 0.5)', fontSize: 16, fontWeight: '600'},
-  sub_heading: {color: '#231F1E', fontSize: 20, fontWeight: '500'},
+  heading: {
+    color: 'rgba(64, 64, 64, 0.5)',
+    fontSize: 16,
+    fontFamily: 'Lato-Bold',
+  },
+  sub_heading: {color: '#231F1E', fontSize: 20, fontFamily: 'Lato-Regular'},
   left_container: {marginLeft: 8},
   right_container: {flexDirection: 'row', marginTop: 10, marginRight: 10},
   font500Size14: {

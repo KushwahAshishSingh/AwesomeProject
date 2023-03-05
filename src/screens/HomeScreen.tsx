@@ -21,7 +21,6 @@ import { TradingCard } from '../components/common/Cards/TradingCard';
 import { WalletCard } from '../components/common/Cards/WalletCard';
 
 function HomeScreen() {
-  const [loader, setLoader] = useState(false);
   return (
     <View>
       <View style={styles.container}>
@@ -68,23 +67,17 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container:{flex: 1, alignItems:'center', paddingTop:26},
-  font500Size14:{
-fontWeight:'500', fontSize:14,
-  },
-  font500Size10:{
-    fontWeight:'500', fontSize:10,
-  },
   font400Size14:{
-    fontWeight:'400',fontSize:14,
+    fontFamily: 'Lato',fontSize:14,
   },
   font600Size14:{
-    fontWeight:'600',fontSize:14,
+    fontFamily: 'Lato-Bold',fontSize:14,
   },
   font600Size11:{
-    fontWeight:'600',fontSize:11,
+    fontFamily: 'Lato-Bold',fontSize:11,
   },
   font400Size11:{
-    fontWeight:'400',fontSize:11,
+    fontFamily: 'Lato',fontSize:11,
   },
   tranding_cards_container:{marginTop:16, marginHorizontal:41,height:200},
   row_flex:{flexDirection:'row'},

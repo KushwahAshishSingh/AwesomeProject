@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(10),
     letterSpacing: 0.4,
     color: 'white',
-    fontWeight: '500',
+    fontFamily: 'Lato',
     paddingTop: 14,
   },
 });

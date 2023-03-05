@@ -4,14 +4,16 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {CompositeNavigationProp} from '@react-navigation/native';
+import Portfolio from '../screens/Portfolio';
+import Wallet from '../screens/Wallet';
 
 export type HomeStackNavigatorParamList = {
   Home: undefined;
 };
 
 export type BottomTabNavigationParam = {
-  Feed: undefined;
-  Courses: undefined;
+  Portfolio: undefined;
+  Wallet: undefined;
   Settings: undefined;
 };
 export type BottomTabNavigatorPropsI = CompositeNavigationProp<

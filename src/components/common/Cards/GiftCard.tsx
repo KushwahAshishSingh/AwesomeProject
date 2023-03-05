@@ -37,9 +37,11 @@ export const GiftCard = ({
                  </View>
               </View>
             </View>
-            <TouchableOpacity style={styles.right_arrow}>
+            <View style={styles.right_container}>
+            <TouchableOpacity>
             {RightArrow}
             </TouchableOpacity>
+            </View>
          </View>
     </View>
   );
@@ -55,7 +57,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     width:342,
-    
   },
   main_container: {flexDirection:'row', justifyContent:'center', alignItems:'center'},
   sub_container: {
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(10),
     letterSpacing: 0.4,
     color: 'white',
-    fontWeight: '500',
+    fontFamily: 'Lato',
     paddingTop: 14,
   },
-  right_arrow: { alignContent:'center', marginTop:10}
+  right_container: {height:'100%', alignItems:'center', justifyContent:'center', marginTop:'2%'},
 });

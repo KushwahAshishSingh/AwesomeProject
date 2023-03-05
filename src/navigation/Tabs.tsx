@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomTabNavigationParam} from './types';
@@ -5,24 +6,20 @@ import HomeStackNavigator from './HomeStack';
 import Portfolio from '../screens/Portfolio';
 import Wallet from '../screens/Wallet';
 import Setting from '../screens/Setting';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
-
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Piechart from '../../assets/icons/Piechart';
 import Vector1 from '../../assets/icons/Vector1';
 import Vector2 from '../../assets/icons/Vector2';
 import Vector3 from '../../assets/icons/Vector3';
-
-import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import { windowWidth } from '../utils/Dimension';
 const Tab = createBottomTabNavigator<BottomTabNavigationParam>();
 
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      // sceneContainerStyle={{backgroundColor: 'green'}}
       tabBar={props => <MyTabBar {...props} />}>
       <Tab.Screen
-        name="HomeStack"
+        name="Home"
         component={HomeStackNavigator}
         options={{
           headerShown: false,
@@ -61,13 +58,10 @@ const BottomTabs = () => {
 
 export default BottomTabs;
 
-const FROM_COLOR = '#FFFFFF';
-const TO_COLOR = '#FFFFFF';
-
 function MyTabBar({state, descriptors, navigation}) {
   const returnIcon = (name: string, color: string) => {
     switch (name) {
-      case 'HomeStack':
+      case 'Home':
         return <Vector1 color={color} />;
       case 'Portfolio':
         return <Piechart color={color} />;
@@ -81,10 +75,9 @@ function MyTabBar({state, descriptors, navigation}) {
   };
   return (
     <>
-      <View style={{width: '100%', height:2, backgroundColor:'#F5F5F5' }}/>
-      
+      <View style={styles.container}/>
       {/* { children } */}
-      <View style={{flexDirection: 'row'}}>
+      <View style={styles.row_flex}>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
           const label =
@@ -124,28 +117,15 @@ function MyTabBar({state, descriptors, navigation}) {
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={{flex: 1, paddingVertical: 10, backgroundColor: '#FFFFFF'}}>
+              style={styles.bottom_container}>
               <View
-                style={{
-                  alignSelf: 'center',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  width: windowWidth / 4,
-                  margin:10
-                }}>
+                style={styles.bottom_sub_container}>
                   <View
-                    style={{
-                      width: 25,
-                      height: 25,
-                    }}>
+                    style={styles.bottom_icon}>
                     {returnIcon(label, isFocused ? '#0052FE' : '#000000')}
                   </View>
                 <Text
-                  style={{
-                    color: isFocused ? '#0052FE' : '#000000',
-                    fontSize: 10,
-                    fontWeight: '500',
-                  }}>
+                  style={[styles.bottom_text,{color: isFocused ? '#0052FE' : '#000000',fontWeight: isFocused ? '700' : '500',}]}>
                     {label}
                   </Text>
                 </View>
@@ -156,3 +136,26 @@ function MyTabBar({state, descriptors, navigation}) {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+ container: {width: '100%', height:3, backgroundColor:'#F5F5F5' },
+row_flex:{flexDirection: 'row'},
+bottom_container:{flex: 1, paddingVertical: 10, backgroundColor: '#FFFFFF'},
+bottom_sub_container:{
+  alignSelf: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: windowWidth / 4,
+  marginBottom:20,
+  marginTop:3,
+},
+bottom_icon:{
+    width: 25,
+    height: 30,
+    justifyContent: 'center',
+    alignItems:'center',
+},
+bottom_text:{
+  fontSize: 12,
+},
+})
